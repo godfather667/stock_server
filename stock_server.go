@@ -1,4 +1,4 @@
-// Package stock implements stock price lookup on most exchanges.
+// Package main - stock_server implements stock price lookup on most exchanges.
 //
 // Server is on localhost:3000
 // Responds to endpoint "/stock/"
@@ -38,8 +38,8 @@ import (
 	"unicode"
 )
 
-// parseData - Cracks returned data into an array of strings.  Will not break
-// on "_" or ".".
+// parseData - Cracks returned data into an array of strings.
+// Will not break on "_" or ".".
 //
 // Returns []string (ie Slice of Strings).
 func parseData(data string) []string {
@@ -167,7 +167,7 @@ func stock_handler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-// main - Sets up handler and waits on traffic.
+// main - Sets up handler on ":3000/stock..." and waits on http traffic.
 //
 func main() {
 	http.HandleFunc("/stock/", stock_handler)
